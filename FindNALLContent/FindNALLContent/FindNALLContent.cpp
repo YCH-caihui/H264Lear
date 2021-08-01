@@ -87,14 +87,6 @@ int _tmain(int argc, _TCHAR * argv[])
     vector<uint8> nallBytes;
 
     find_nal_prefix(&pFile_in, nallBytes);
-    find_nal_prefix(&pFile_in, nallBytes);
-    find_nal_prefix(&pFile_in, nallBytes);
-    find_nal_prefix(&pFile_in, nallBytes);
-
-    find_nal_prefix(&pFile_in, nallBytes);
-    find_nal_prefix(&pFile_in, nallBytes);
-    find_nal_prefix(&pFile_in, nallBytes);
-    find_nal_prefix(&pFile_in, nallBytes);
 
     for (int idx = 0; idx < nallBytes.size(); idx++)
     {

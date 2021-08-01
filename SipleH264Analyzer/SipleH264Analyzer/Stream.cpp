@@ -7,10 +7,20 @@ CStreamFile::CStreamFile(TCHAR* fileName)
 	m_filename = fileName;
 	file_info();
 	_tfopen_s(&m_inputFile, m_filename, _T("rb"));
+
 	if (NULL == m_inputFile)
 	{
 		file_error(0);
 	}
+#if TRACE_CONFIG_LOGOUT
+    g_traceFile.open("trace.txt");
+    if (!g_traceFile.is_open())
+    {
+        file_error(1);
+    }
+
+    g_traceFile << "Trace file " << endl;
+#endif // TRACE_CONFIG_LOGOUT
 
 }
 
@@ -30,6 +40,9 @@ void CStreamFile::file_error(int idx)
 	case 0:
 		wcout << L"Error: opening input file failed" << endl;
 		break;
+    case 1:
+        wcout << L"Open trace failed" << endl;
+        break;
 	}
 }
 
@@ -79,7 +92,8 @@ int CStreamFile::find_nal_prefix()
                 getPrefix = 2;
                 m_nalVec.pop_back();
                 m_nalVec.pop_back();
-                m_nalVec.pop_back();;
+                m_nalVec.pop_back();
+                m_nalVec.pop_back();
                 break;
             }
         }
@@ -109,6 +123,9 @@ int CStreamFile::parse_h264_bisttream()
             uint8 nalType = m_nalVec[0] & 0x1F;
             wcout << L"Nall unity type:" << nalType << endl; 
             ebsp_to_sodb();
+            if (m_nalVec.size() > 1) {
+                CNALUnit nallUnit(&m_nalVec[1], m_nalVec.size() - 1);
+            }
         }
 
     } while (ret);
@@ -145,4 +162,12 @@ CStreamFile::~CStreamFile()
 		fclose(m_inputFile);
 		m_inputFile = nullptr;
 	}
+
+#if TRACE_CONFIG_LOGOUT 
+    if (g_traceFile.is_open())
+    {
+        g_traceFile.close();
+    }
+#endif // TRACE_CONFIG_LOGOUT 
+
 }

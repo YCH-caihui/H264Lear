@@ -7,6 +7,7 @@
 #include "global.h"
 #include <vector>
 #include "CNALUnit.h"
+#include "Configuration.h"
 
 
 class CStreamFile

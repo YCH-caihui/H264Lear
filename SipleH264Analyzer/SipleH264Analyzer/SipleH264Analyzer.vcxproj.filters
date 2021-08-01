@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Global">
+      <UniqueIdentifier>{368b4510-bfab-4d4d-b970-8d8b50afab99}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SipleH264Analyzer.cpp">
@@ -24,16 +27,22 @@
     <ClCompile Include="CNALUnit.cpp">
       <Filter>NAL unit</Filter>
     </ClCompile>
+    <ClCompile Include="Configuration.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Stream.h">
       <Filter>Stream</Filter>
     </ClInclude>
-    <ClInclude Include="Global.h">
-      <Filter>Application</Filter>
-    </ClInclude>
     <ClInclude Include="CNALUnit.h">
       <Filter>NAL unit</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Configuration.h">
+      <Filter>Application</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

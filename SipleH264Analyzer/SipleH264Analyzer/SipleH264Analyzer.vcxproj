@@ -141,11 +141,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CNALUnit.cpp" />
+    <ClCompile Include="Configuration.cpp" />
     <ClCompile Include="SipleH264Analyzer.cpp" />
     <ClCompile Include="Stream.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CNALUnit.h" />
+    <ClInclude Include="Configuration.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="Stream.h" />
   </ItemGroup>
